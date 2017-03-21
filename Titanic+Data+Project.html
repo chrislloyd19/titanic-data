@@ -11751,7 +11751,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A-look-into-who-survived-the-sinking-of-the-Titanic">A look into who survived the sinking of the Titanic<a class="anchor-link" href="#A-look-into-who-survived-the-sinking-of-the-Titanic">&#182;</a></h1><p>This analysis explores a sample of Titanic passengers for various insights into who surived. It will answer the following questions. Which factors made a passenger more likely to survive the sinking of the Titanic? And for those who survived, what did the breakdown look like for the same factors?</p>
+<h1 id="A-look-into-who-survived-the-sinking-of-the-Titanic">A look into who survived the sinking of the Titanic<a class="anchor-link" href="#A-look-into-who-survived-the-sinking-of-the-Titanic">&#182;</a></h1><p>This analysis explores a sample of Titanic passengers for various insights into who surived.</p>
+<p>It will answer the following questions. Which factors made a passenger more likely to survive the sinking of the Titanic? And for those who survived, what did the breakdown look like for the same factors?</p>
+<p>To practice some data wrangling, this analysis digs deeper into missing passenger age data. This dataset has a sizeable chunk of missing age data. After some consideration, I chose to remove that data when analysing passenger and survivor age. Justification is given in the relevant section.</p>
 <p>This is a tentative work in progress.</p>
 
 </div>
@@ -11759,7 +11761,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[204]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11831,7 +11833,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[185]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># note: for survival rate,</span>
@@ -11844,6 +11846,9 @@ div#notebook {
 
 <span class="k">print</span> <span class="s2">&quot;overall survival rate:&quot;</span>
 <span class="k">print</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
+
+<span class="k">print</span> <span class="s2">&quot;total passengers&quot;</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">passenger_data</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11858,6 +11863,8 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>overall survival rate:
 0.383838383838
+total passengers
+891
 </pre>
 </div>
 </div>
@@ -11868,7 +11875,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[186]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">survival_pie_chart</span><span class="p">(</span><span class="s1">&#39;Overall Survival Rate&#39;</span><span class="p">,</span> <span class="n">overall_survival_rate</span><span class="p">)</span>
@@ -12069,7 +12076,7 @@ Here's the survival rate for females and males.
 ### 18.9% of males survived
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[187]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">survival_rate_by_sex</span> <span class="o">=</span> <span class="n">get_survival_rate_by_category</span><span class="p">(</span><span class="n">passenger_data</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span>
@@ -12100,7 +12107,7 @@ Name: Survived, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[188]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">survival_pie_chart</span><span class="p">(</span><span class="s1">&#39;Female Survival Rate&#39;</span><span class="p">,</span> <span class="n">survival_rate_by_sex</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">])</span>
@@ -12286,7 +12293,7 @@ REQklVRQIiKSSv8Hm5Pgf6dLejMAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[189]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">survival_pie_chart</span><span class="p">(</span><span class="s1">&#39;Male Survival Rate&#39;</span><span class="p">,</span> <span class="n">survival_rate_by_sex</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">])</span>
@@ -12495,7 +12502,7 @@ IqmgREQkkVRQIiKSSP8PatzRKc8MxWIAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[190]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># note: while the data has a number of empty values for age,</span>
@@ -12553,7 +12560,87 @@ Name: Survived, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[220]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># total number of survivors</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">passenger_data</span><span class="p">)</span>
+
+<span class="c1"># number of survivors with missing age data</span>
+<span class="k">print</span> <span class="n">passenger_data</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># percentage of survivors with missing age data</span>
+<span class="k">print</span> <span class="n">passenger_data</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">passenger_data</span><span class="p">)</span>
+
+<span class="c1"># get survivors missing age data</span>
+<span class="n">passenger_missing_age_data</span> <span class="o">=</span> <span class="n">passenger_data</span><span class="p">[</span><span class="n">passenger_data</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">passenger_data</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]]</span>
+
+<span class="c1"># print number of survivors with missing age data</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">passenger_missing_age_data</span><span class="p">)</span>
+
+<span class="c1"># print data</span>
+<span class="k">print</span> <span class="n">passenger_missing_age_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Pclass&#39;</span><span class="p">)[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">passenger_missing_age_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Pclass&#39;</span><span class="p">)[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">passenger_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>891
+177
+0.198653198653
+177
+Pclass
+1     30
+2     11
+3    136
+Name: Pclass, dtype: int64
+Sex
+female     53
+male      124
+Name: Sex, dtype: int64
+Pclass
+1    216
+2    184
+3    491
+Name: Pclass, dtype: int64
+Sex
+female    314
+male      577
+Name: Sex, dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="A-note-on-age-data">A note on age data<a class="anchor-link" href="#A-note-on-age-data">&#182;</a></h4><p>I chose to remove rows with missing age data.</p>
+<p>About 20% of the survivors are missing an age value. Of those, the majority belong to the third class. And most are male.</p>
+<h4 id="How-does-this-affect-the-age-distribution?">How does this affect the age distribution?<a class="anchor-link" href="#How-does-this-affect-the-age-distribution?">&#182;</a></h4><p>It shouldn't. The missing age data appears to occur at random. The number of passengers by ticket class and gender roughly match the subset of passengers with age data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># data wrangling: get a new DataFrame w/ NaN age values removed</span>
@@ -12701,7 +12788,7 @@ u4npDnIOy8AAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[191]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">survival_pie_chart</span><span class="p">(</span><span class="s1">&#39;Child Survival Rate&#39;</span><span class="p">,</span> <span class="n">survival_rate_by_age</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -13275,7 +13362,7 @@ RK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[192]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">survival_rate_by_ticket_class</span> <span class="o">=</span> <span class="n">get_survival_rate_by_category</span><span class="p">(</span><span class="n">passenger_data</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">)</span>
@@ -13307,7 +13394,7 @@ Name: Survived, dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[193]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">survival_pie_chart</span><span class="p">(</span><span class="s1">&#39;First Class Survival Rate&#39;</span><span class="p">,</span> <span class="n">survival_rate_by_ticket_class</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -13893,7 +13980,7 @@ iIhESQUlIiJRUkGJiEiUVFAiIhIlFZSIiERJBSUiIlH6f5vQzR4AxiKYAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[194]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
@@ -13939,7 +14026,7 @@ iIhESQUlIiJRUkGJiEiUVFAiIhIlFZSIiERJBSUiIlH6f5vQzR4AxiKYAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[195]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
@@ -13974,7 +14061,7 @@ iIhESQUlIiJRUkGJiEiUVFAiIhIlFZSIiERJBSUiIlH6f5vQzR4AxiKYAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[196]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">pie_chart</span><span class="p">(</span><span class="s1">&#39;Survivors by Ticket Class&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;1st class&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd class&#39;</span><span class="p">,</span> <span class="s1">&#39;3rd class&#39;</span><span class="p">],</span> <span class="n">survivors_by_ticket_class</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;#F7B733&#39;</span><span class="p">,</span> <span class="s1">&#39;#4ABDAC&#39;</span><span class="p">,</span> <span class="s1">&#39;#FC4A1A&#39;</span><span class="p">])</span>
@@ -14237,7 +14324,7 @@ c/ZW+SS4tQAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[197]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
@@ -14273,7 +14360,7 @@ c/ZW+SS4tQAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[198]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">pie_chart</span><span class="p">(</span><span class="s1">&#39;Survivors by Gender&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">],</span> <span class="n">survivors_by_gender</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;#FC4A1A&#39;</span><span class="p">,</span> <span class="s1">&#39;#4ABDAC&#39;</span><span class="p">])</span>
@@ -14485,10 +14572,90 @@ RCSWVFAiIhJLKigREYklFZSIiMSSCkpERGLp/wFu1C/nSsjmigAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># total number of survivors</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">survivors</span><span class="p">)</span>
+
+<span class="c1"># number of survivors with missing age data</span>
+<span class="k">print</span> <span class="n">survivors</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># percentage of survivors with missing age data</span>
+<span class="k">print</span> <span class="n">survivors</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">survivors</span><span class="p">)</span>
+
+<span class="c1"># get survivors missing age data</span>
+<span class="n">survivors_missing_age_data</span> <span class="o">=</span> <span class="n">survivors</span><span class="p">[</span><span class="n">survivors</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">survivors</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]]</span>
+
+<span class="c1"># print number of survivors with missing age data</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">survivors_missing_age_data</span><span class="p">)</span>
+
+<span class="c1"># print data</span>
+<span class="k">print</span> <span class="n">survivors_missing_age_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Pclass&#39;</span><span class="p">)[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">survivors_missing_age_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="n">survivors</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Pclass&#39;</span><span class="p">)[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">survivors</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>342
+52
+0.152046783626
+52
+Pclass
+1    14
+2     4
+3    34
+Name: Pclass, dtype: int64
+Sex
+female    36
+male      16
+Name: Sex, dtype: int64
+Pclass
+1    136
+2     87
+3    119
+Name: Pclass, dtype: int64
+Sex
+female    233
+male      109
+Name: Sex, dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="A-note-on-age-data">A note on age data<a class="anchor-link" href="#A-note-on-age-data">&#182;</a></h4><p>I chose to remove rows with missing age data.</p>
+<p>About 15% of the survivors are missing an age value. Of those, the majority belong to the third class. And most are female.</p>
+<h4 id="How-does-this-affect-the-age-distribution?">How does this affect the age distribution?<a class="anchor-link" href="#How-does-this-affect-the-age-distribution?">&#182;</a></h4><p>Again, it shouldn't. The missing age data appears to occur at random. The number of survivors by ticket class and gender roughly match the subset of survivors with age data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[221]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># data wrangling: since there&#39;s a lot of missing age data (~17% of survivors),</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># data wrangling: since there&#39;s a lot of missing age data (~15% of survivors),</span>
 <span class="c1">#                 we&#39;ll remove the rows without age data</span>
 <span class="n">survivors_with_age_data</span> <span class="o">=</span> <span class="n">survivors</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">])</span>
 
@@ -14921,7 +15088,8 @@ TkSuQmCC
 <p>For the different ticket classes, things look a bit more even. The first class ticket holders do still make up a plurality of the survivors, though. And considering they probably made up a minority of total passengers, they still seem to have had a priority.</p>
 <p>Females did much better than males. Their survival rate is double.</p>
 <p>The age breakdown seems interesting. While adults most certainly made up a majority of passengers, they also made up over 70% of survivors. Looking at the distrubtion of ages for both survivors and passengers does lend some evidence towards the notion that younger children and young adults survived at higher rates than other age groups.</p>
-<p>In conclusion, the trends make sense. The groups that you'd expect more likely to survive, did. However, there may be other factors that determined survival. Perhaps those closer to the deck at the time of impact with the iceberg made it out in larger numbers. The higher rate of first class survivors lends some credibility to that theory. Although a more detailed analysis involving the cabin numbers may shed some more light on that hypothesis. Such an analysis may be beyond the scope of this project.</p>
+<h2 id="Limitations">Limitations<a class="anchor-link" href="#Limitations">&#182;</a></h2><p>There are several limitations in for this data. First, obviously this data is only a sample from the population. According to the Kaggle page, the Titanic had 2,224 passengers on board. This data set only has data for 891 passengers. So, conclusions drawn may or may not be accurate for the whole passenger population. Also, there's a considerable amount of missing data. This analysis dug deeper into missing age data. Even though I stated that this missing data was random, it may still affect the conclusions from the analysis.</p>
+<h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>In conclusion, the trends make sense. The groups that you'd expect more likely to survive, did. However, there may be other factors that determined survival. Perhaps those closer to the deck at the time of impact with the iceberg made it out in larger numbers. The higher rate of first class survivors lends some credibility to that theory. A more detailed analysis involving the cabin numbers may shed some more light on that hypothesis. Such an analysis may be beyond the scope of this project.</p>
 
 </div>
 </div>
